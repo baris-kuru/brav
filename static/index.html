@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>brav</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div class="brand-lockup">
+          <div class="brand-mark">b</div>
+          <div>
+            <p class="eyebrow">brav cafe management</p>
+            <h1>Manager cockpit</h1>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="seedButton" type="button">Load cafe data</button>
+          <span id="heroHealth" class="status-pill">Connecting</span>
+        </div>
+      </header>
+
+      <section class="kpi-strip" id="opsStats"></section>
+
+      <section class="workspace-grid">
+        <article class="panel manager-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Manager Twin</h2>
+              <p>Ask what the cafe should do next.</p>
+            </div>
+          </div>
+          <div id="story" class="story"></div>
+          <form id="managerForm" class="ask-form">
+            <label class="field">
+              <span>Decision question</span>
+              <textarea id="managerQuestion" rows="4" placeholder="How should I staff this afternoon and what should I reorder first?"></textarea>
+            </label>
+            <button type="submit">Ask manager twin</button>
+          </form>
+          <div id="managerAnswer" class="answer-box">brav answers from stock, staffing, weather, daypart, weekend and receipt data.</div>
+        </article>
+
+        <article class="panel priority-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Today’s Priorities</h2>
+              <p>Open actions from the current cafe state.</p>
+            </div>
+          </div>
+          <div id="priorityList" class="priority-list"></div>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Staffing Forecast</h2>
+              <p>Weather, weekend, holiday, and daypart aware demand planning.</p>
+            </div>
+          </div>
+          <div id="staffingGrid" class="staffing-grid"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Stock Watch</h2>
+              <p>Current inventory with reorder pressure.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>On hand</th>
+                  <th>Days</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="stockTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <article class="panel upload-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Receipt Intake</h2>
+              <p>Upload supplier or sales PDFs to enrich brav.</p>
+            </div>
+          </div>
+          <form id="uploadForm">
+            <label class="field">
+              <span>Batch name</span>
+              <input id="batchName" name="batchName" placeholder="Friday supplier receipts" />
+            </label>
+            <label class="dropzone">
+              <input id="pdfFiles" name="files" type="file" accept="application/pdf" multiple />
+              <span>Select PDF batch</span>
+            </label>
+            <button type="submit">Process receipts</button>
+          </form>
+          <pre id="uploadResult" class="result-box">No batch processed yet.</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Receipts</h2>
+              <p>Recent extracted documents for financial context.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Merchant</th>
+                  <th>Date</th>
+                  <th>Total</th>
+                  <th>Confidence</th>
+                </tr>
+              </thead>
+              <tbody id="receiptsTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <h2>Planning Signals</h2>
+            <p>Calendar and demand assumptions currently feeding the assistant.</p>
+          </div>
+        </div>
+        <div id="calendarSignals" class="signal-grid"></div>
+      </section>
+    </main>
+    <script type="module" src="/static/app.js"></script>
+  </body>
+</html>

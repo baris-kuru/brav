@@ -1,0 +1,386 @@
+:root {
+  --bg: #f2f0e8;
+  --surface: #fffdf7;
+  --surface-2: #f7f3e9;
+  --ink: #1f2522;
+  --muted: #667069;
+  --line: #ddd8ca;
+  --accent: #245f63;
+  --accent-2: #6f8f72;
+  --coffee: #8a5b43;
+  --cream: #fff8ea;
+  --warn: #a5681d;
+  --danger: #a64545;
+  --ok: #32765a;
+  --shadow: 0 12px 30px rgba(68, 54, 36, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(180deg, rgba(36, 95, 99, 0.08), transparent 260px),
+    repeating-linear-gradient(90deg, rgba(31, 37, 34, 0.018) 0, rgba(31, 37, 34, 0.018) 1px, transparent 1px, transparent 28px),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1280px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 20px 0 48px;
+}
+
+.topbar,
+.panel,
+.kpi-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+
+.brand-lockup {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.brand-mark {
+  align-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--coffee));
+  border-radius: 8px;
+  color: var(--cream);
+  display: grid;
+  font-size: 28px;
+  font-weight: 800;
+  height: 48px;
+  line-height: 1;
+  place-items: center;
+  width: 48px;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.eyebrow {
+  color: var(--coffee);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 28px;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+p,
+table,
+.muted {
+  color: var(--muted);
+}
+
+button {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--accent), #2f7674);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  padding: 10px 12px;
+}
+
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.status-pill,
+.tag,
+.priority-item span {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 8px;
+}
+
+.status-pill {
+  background: #eaf3ee;
+  color: var(--ok);
+}
+
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.kpi-card {
+  border-radius: 8px;
+  padding: 16px;
+  position: relative;
+}
+
+.kpi-card::before {
+  background: var(--coffee);
+  border-radius: 999px;
+  content: "";
+  height: 6px;
+  left: 16px;
+  position: absolute;
+  top: 12px;
+  width: 28px;
+}
+
+.kpi-card span {
+  color: var(--muted);
+  display: block;
+  font-size: 13px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.kpi-card strong {
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+}
+
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.panel {
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.story,
+.answer-box,
+.result-box {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  line-height: 1.55;
+  margin-bottom: 14px;
+  min-height: 70px;
+  padding: 12px;
+  white-space: pre-wrap;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font: inherit;
+  padding: 11px 12px;
+  resize: vertical;
+  width: 100%;
+}
+
+.dropzone {
+  align-items: center;
+  background: linear-gradient(135deg, #fffaf0, #eef5ef);
+  border: 1px dashed #a8ad9e;
+  border-radius: 8px;
+  display: grid;
+  min-height: 92px;
+  place-items: center;
+  position: relative;
+}
+
+.dropzone input {
+  cursor: pointer;
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+}
+
+.priority-list,
+.staffing-grid,
+.signal-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.priority-item,
+.staff-card,
+.signal-item {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent-2);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.priority-item {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.priority-item p,
+.staff-card p,
+.signal-item p {
+  margin-bottom: 0;
+}
+
+.priority-item.danger,
+.staff-card.danger {
+  border-left-color: var(--danger);
+}
+
+.priority-item.warn,
+.staff-card.warn {
+  border-left-color: var(--warn);
+}
+
+.tag.ok,
+.priority-item.ok span,
+.staff-card.ok .staff-card-top span {
+  background: #e5f2ec;
+  color: var(--ok);
+}
+
+.tag.warn,
+.priority-item.warn span {
+  background: #fff0d8;
+  color: var(--warn);
+}
+
+.tag.danger,
+.priority-item.danger span {
+  background: #ffe1e1;
+  color: var(--danger);
+}
+
+.staff-card-top,
+.staff-counts {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.staff-card-top {
+  margin-bottom: 10px;
+}
+
+.staff-card-top span,
+.staff-counts span,
+.signal-item span,
+small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.staff-counts {
+  margin-bottom: 8px;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 11px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+td strong,
+td small {
+  display: block;
+}
+
+@media (max-width: 920px) {
+  .topbar,
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .kpi-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace-grid {
+    display: grid;
+  }
+}

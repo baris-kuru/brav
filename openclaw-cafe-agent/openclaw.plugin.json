@@ -1,0 +1,10 @@
+{
+  "id": "openclaw-cafe-agent",
+  "name": "brav",
+  "description": "Batch receipt ingestion, analytics, and management insights for cafes",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

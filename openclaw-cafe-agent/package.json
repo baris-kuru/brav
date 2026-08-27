@@ -1,0 +1,17 @@
+{
+  "name": "openclaw-cafe-agent",
+  "version": "1.0.0",
+  "description": "OpenClaw plugin for cafe receipt operations and dashboard analysis",
+  "type": "module",
+  "main": "index.ts",
+  "files": [
+    "index.ts",
+    "shared.ts",
+    "openclaw.plugin.json"
+  ],
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}
